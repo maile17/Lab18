@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.0/examples/carousel/"
+    />
+    
+    <!-- Bootstrap core for CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Java Script Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Carousel Page</title>
+  </head>
+
+  <style>
+    body {
+      background-color: #a5d8ff;
+      height: 100vh;
+    }
+    /* Định dạng Carousel */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Nunito", sans-serif;
+      height: 100vh;
+    }
+
+    .container-body {
+      width: 100vw !important;
+    }
+
+    .carousel-inner h1, p {
+      color: white;
+      text-shadow: 0.5px 0.5px black;
+    }
+
+    .d-block-1 {
+      background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)), url(img-1.jpg);   
+      border-radius: 5px;  
+    }
+
+    .d-block-2 {
+      background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)), url(img-2.jpg);      
+      border-radius: 5px; 
+    }
+
+    .d-block-3 {
+      background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)), url(img-3.jpg);      
+      border-radius: 5px;
+    }
+
+    .CarouselIndicators {
+      position: relative;
+    }
+
+    .control {
+      position: absolute;
+      top: 55%;
+      color: white;
+      text-shadow: 0.5px 0.5px black;
+    }
+
+    .prev {
+      left: 75px;
+    }
+
+    .next {
+      right: 75px;
+    }
+
+    /* Định dạng Footer */
+    #footer {
+      margin: 2rem 2rem;
+      display: flex;
+      margin-bottom: calc(100vh - 4rem);
+      justify-content: space-between;
+    }
+
+    #footer ul {
+      display: flex;
+      flex-direction: row;
+      list-style-type: none;
+    }
+
+    #footer li {
+      padding: 0 1rem !important;
+    }
+
+    #footer a {
+      padding-right: 2rem !important;
+    }
+
+    #footer a:link {
+      text-decoration: none;
+    }
+  </style>
+
+  <body>
+    <!-- Header -->
+    <div class="container-body">
+      <div id="navbar" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Carousel</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-control="#navbarCollapse"
+            aria-label="toggle navigation"
+          ></button>
+          <span class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+
+              <!-- Active -->
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+
+              <!-- Link -->
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+
+              <!-- Disabled -->
+              <li class="nav-item">
+                <a
+                  class="nav-link disabled"
+                  href="#"
+                  tabindex="-1"
+                  aria-disabled="true"
+                  >Disabled
+                  </a>
+              </li>
+            </ul>
+
+            <!-- Search -->
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Carousel -->
+      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+          <!-- Khối 3 item chứa background image và button -->
+          <div id="CarouselIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#CarouselIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#CarouselIndicators" data-slide-to="1"></li>
+              <li data-target="#CarouselIndicators" data-slide-to="2"></li>
+            </ol>
+
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="container">
+                  <img class="d-block-1 w-100" src="img-1.jpg" alt="First slide">
+                  <div class="carousel-caption text-start">
+                    <h1>Example headline</h1>
+                    <p>Some representative placeholder content for the first slide of the carousel</p>
+                    <p><a class="btn btn-lg btn-primary">Sign up today</a></p>  
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="container">
+                  <img class="d-block-2 w-100" src="img-2.jpg" alt="Second slide">
+                  <div class="carousel-caption">
+                    <h1>Another example headline</h1>
+                    <p>Some representative placeholder content for the first slide of the carousel</p>
+                    <p><a class="btn btn-lg btn-primary">Learn more</a></p>
+                  </div>  
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="container">
+                  <img class="d-block-3 w-100" src="img-3.jpg" alt="Third slide">
+                  <div class="carousel-caption text-end">
+                    <h1>One more for good measure</h1>
+                    <p>Some representative placeholder content for the first slide of the carousel</p>
+                    <p><a class="btn btn-lg btn-primary">Browse gallery</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="main">
+              <div class="control prev"></div>
+              <div class="control next"></div>
+            </div>
+          </div>
+
+      <!-- Khối item active -->
+      <div class="carousel-indicator">
+        <button 
+          type="button" 
+          data-bs-target="#myCarousel" 
+          data-bs-slide-to="0" 
+          class="active" 
+          aria-label="Slide 1" 
+          aria-current="true">
+        </button>
+
+        <button 
+          type="button" 
+          data-bs-target="#myCarousel" 
+          data-bs-slide-to="1" 
+          class="" 
+          aria-label="Slide 2">
+        </button>
+
+        <button 
+          type="button" 
+          data-bs-target="#myCarousel" 
+          data-bs-slide-to="2" 
+          class="" 
+          aria-label="Slide 3">
+        </button>
+      </div>
+
+      <!-- Khối điều khiển với 2 button next, prev -->
+      <button 
+        class="carousel-control-prev" 
+        type="button"
+        data-bs-target="#myCarousel" 
+        data-bs-slide="prev">
+        <span 
+        class="carousel-control-prev-icon" 
+        style="font-size: 50px;"
+        aria-hidden="true">
+        </span>
+        <span 
+        class="visually-hidden">Previous</span>
+      </button>
+
+      <button 
+        class="carousel-control-next" 
+        type="button"
+        data-bs-target="#myCarousel" 
+        data-bs-slide="next">
+        <span 
+        class="carousel-control-next-icon" 
+        style="font-size: 50px;"
+        aria-hidden="true">
+        </span>
+        <span 
+        class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </body>
+
+  <!-- Footer -->
+  <footer>
+    <div id="footer">
+      <ul>
+        <li>&copy; 2017 – 2022 Company, Inc</li>
+        <li><a href="#">• Privacy</a></li>
+        <li><a href="#">• Terms</a></li>
+      </ul>
+        <a href="#navbar">Back to top</a>
+      </div>
+  </footer>
+</html>
